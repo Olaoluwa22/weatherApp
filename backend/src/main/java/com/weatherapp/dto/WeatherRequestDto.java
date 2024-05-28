@@ -1,19 +1,14 @@
 package com.weatherapp.dto;
 
-public class WeatherRequestDto {
-    private String country;
-    private String state;
+import jakarta.validation.constraints.NotBlank;
+import org.springframework.stereotype.Component;
 
-    public String getCountry() {
-        return country;
-    }
-    public void setCountry(String country) {
-        this.country = country;
-    }
-    public String getState() {
-        return state;
-    }
-    public void setState(String state) {
-        this.state = state;
+@Component
+public class WeatherRequestDto {
+    @NotBlank
+    private String location;
+
+    public String getLocation() {
+        return location;
     }
 }

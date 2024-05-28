@@ -1,15 +1,24 @@
 package com.weatherapp.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.weatherapp.dto.WeatherRequestDto;
+import com.weatherapp.service.WeatherService;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/weather")
 public class WeatherController {
+    @Autowired
+    private WeatherService weatherService;
+    @Autowired
+    private WeatherRequestDto weatherRequestDto;
 
-    @GetMapping("/current_weather")
-    public String getCurrentWeather(String country, String state){
-        return "Rainy and Cold at 15 degree";
+    @PostMapping("/current_weather_condition")
+    public ResponseEntity<Map<String, Object>> getCurrentWeatherCondition(@Valid @RequestBody WeatherRequestDto weatherRequestDto) {
+        return weatherService.getCurrentWeatherCondition(weatherRequestDto);
     }
 }
