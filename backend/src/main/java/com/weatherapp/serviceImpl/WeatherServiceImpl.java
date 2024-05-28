@@ -18,9 +18,9 @@ public class WeatherServiceImpl implements WeatherService {
     @Override
     public ResponseEntity<Map<String, Object>> getCurrentWeatherCondition(WeatherRequestDto weatherRequestDto) {
         String city = weatherRequestDto.getLocation();
-        String openWeatherManUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city +"&appid=" +apiKey;
+        String openWeatherMapUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city +"&appid=" +apiKey;
         RestTemplate restTemplate = new RestTemplate();
-        Map<String, Object> response = restTemplate.getForObject(openWeatherManUrl, Map.class);
+        Map<String, Object> response = restTemplate.getForObject(openWeatherMapUrl, Map.class);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
