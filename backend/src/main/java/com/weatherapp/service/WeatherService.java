@@ -6,5 +6,5 @@ import org.springframework.http.ResponseEntity;
 import java.util.Map;
 
 public interface WeatherService {
-    ResponseEntity<Map<String, Object>> getCurrentWeatherCondition(WeatherRequestDto weatherRequestDto);
+    ResponseEntity<?> getCurrentWeatherCondition(WeatherRequestDto weatherRequestDto);
 }

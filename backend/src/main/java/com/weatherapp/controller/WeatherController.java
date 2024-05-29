@@ -18,7 +18,7 @@ public class WeatherController {
     private WeatherRequestDto weatherRequestDto;
 
     @PostMapping("/current_weather_condition")
-    public ResponseEntity<Map<String, Object>> getCurrentWeatherCondition(@Valid @RequestBody WeatherRequestDto weatherRequestDto) {
+    public ResponseEntity<?> getCurrentWeatherCondition(@Valid @RequestBody WeatherRequestDto weatherRequestDto) {
         return weatherService.getCurrentWeatherCondition(weatherRequestDto);
     }
 }
