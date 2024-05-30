@@ -1,6 +1,8 @@
 package com.weatherapp.serviceImpl;
 
 import com.weatherapp.dto.WeatherRequestDto;
+import com.weatherapp.exception.exceptionHandler.CityNotFoundException;
+import com.weatherapp.exception.exceptionHandler.InternalServerErrorException;
 import com.weatherapp.service.WeatherService;
 import com.weatherapp.util.ConstantMessages;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,20 +25,17 @@ public class WeatherServiceImpl implements WeatherService {
     private String apiKey;
 
     @Override
-    public ResponseEntity<?> getCurrentWeatherCondition(WeatherRequestDto weatherRequestDto) {
+    public ResponseEntity<?> getCurrentWeatherCondition(WeatherRequestDto weatherRequestDto) throws CityNotFoundException, InternalServerErrorException {
         String city = weatherRequestDto.getLocation();
         String openWeatherMapUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
         ResponseEntity<?> response = null;
+
         try {
             response = restTemplate.exchange(openWeatherMapUrl, HttpMethod.GET, null, Map.class);
         } catch (HttpClientErrorException e) {
-            if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
-                return new ResponseEntity<>(ConstantMessages.NOT_FOUND.getMessage(), HttpStatus.NOT_FOUND);
-            }
+            throw new CityNotFoundException(ConstantMessages.NOT_FOUND.getMessage());
         } catch (HttpServerErrorException e) {
-            if (e.getStatusCode() == HttpStatus.INTERNAL_SERVER_ERROR) {
-                return new ResponseEntity<>(ConstantMessages.INTERNAL_ERROR.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-            }
+           throw new InternalServerErrorException(ConstantMessages.INTERNAL_ERROR.getMessage());
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

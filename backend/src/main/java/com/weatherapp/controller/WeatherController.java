@@ -1,6 +1,8 @@
 package com.weatherapp.controller;
 
 import com.weatherapp.dto.WeatherRequestDto;
+import com.weatherapp.exception.exceptionHandler.CityNotFoundException;
+import com.weatherapp.exception.exceptionHandler.InternalServerErrorException;
 import com.weatherapp.service.WeatherService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +20,7 @@ public class WeatherController {
     private WeatherRequestDto weatherRequestDto;
 
     @PostMapping("/current_weather_condition")
-    public ResponseEntity<?> getCurrentWeatherCondition(@Valid @RequestBody WeatherRequestDto weatherRequestDto) {
+    public ResponseEntity<?> getCurrentWeatherCondition(@Valid @RequestBody WeatherRequestDto weatherRequestDto) throws InternalServerErrorException, CityNotFoundException {
         return weatherService.getCurrentWeatherCondition(weatherRequestDto);
     }
 }
