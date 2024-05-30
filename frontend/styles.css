@@ -1,0 +1,55 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: black;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;  /* Optional for vertical centering */
+  min-height: 100vh;
+  background-image: url(./img/day/clear.jpg);
+  background-size: cover;
+}
+
+.top-div{
+  width: 500px;
+  height: 700px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+}
+
+.heading{
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0; /* Adjust background color as needed */
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 2rem;
+}
+
+#search-input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  flex: 1; /* Allow input to grow and fill remaining space */
+}
+
+.bx { /* Style the BoxIcons icon */
+  font-size: 20px;
+  color: #333; /* Adjust icon color as needed */
+  cursor: pointer; /* Optional: Add a pointer cursor for potential search button functionality */
+}
+
+.weather-info{
+  position: relative;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
