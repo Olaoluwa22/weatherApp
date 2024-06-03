@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Weather App</title>
-</head>
-<body>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-black">
+    <div class="top-div">
+      <div>
+        <h3 class="heading">The Weather</h3>
+        <div id="weather-info" class="weather-info">
+          <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search..." />
+            <i class="bx bx-search"></i>
+          </div>
 
-</body>
+          <h2>Location: <span id="location"></span></h2>
+          <p>Temperature: <span id="temperature"></span>&deg;</p>
+          <p>Date: <span id="date"></span></p>
+          <p>Weather: <span id="weather"></span></p>
+        </div>
+      </div>
+
+      <div class="weather-info">
+        <h2>Weather Forecast</h2>
+        <p>Yesterday: <span id="previous-weather"></span></p>
+        <p>Today: <span id="current-weather"></span></p>
+        <p>Tomorrow: <span id="tomorrow-forecast"></span></p>
+        <p>Next 3 Days: <span id="future-forecast"></span></p>
+      </div>
+    </div>
+  </body>
 </html>
