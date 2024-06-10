@@ -13,27 +13,38 @@
   <body class="bg-black">
     <div class="top-div">
       <div>
-        <h3 class="heading">The Weather</h3>
+        <h1 class="heading">The Weather</h1>
         <div id="weather-info" class="weather-info">
           <div class="search-bar">
             <input type="text" id="search-input" placeholder="Search..." />
             <i class="bx bx-search"></i>
           </div>
 
-          <h2>Location: <span id="location"></span></h2>
-          <p>Temperature: <span id="temperature"></span>&deg;</p>
-          <p>Date: <span id="date"></span></p>
-          <p>Weather: <span id="weather"></span></p>
+          <div class="bottom-div">
+            <p id="location-display"></p>
+            <p>Temperature: <span id="temperature"></span>&deg;</p>
+            <p id="date-container">Date: <span id="date"></span></p>
+            <p>
+              Weather:
+              <span id="weather"
+                ><img
+                  src="./img/day/sun.png"
+                  style="width: 50px; height: 50px"
+                  alt=""
+              /></span>
+            </p>
+          </div>
         </div>
       </div>
 
-      <div class="weather-info">
+      <!-- <div class="weather-info">
         <h2>Weather Forecast</h2>
         <p>Yesterday: <span id="previous-weather"></span></p>
         <p>Today: <span id="current-weather"></span></p>
         <p>Tomorrow: <span id="tomorrow-forecast"></span></p>
         <p>Next 3 Days: <span id="future-forecast"></span></p>
-      </div>
+      </div> -->
     </div>
   </body>
+  <script src="./script.js"></script>
 </html>

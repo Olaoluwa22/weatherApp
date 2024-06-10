@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   color: black;
+  font-family: 'Merriweather';
 }
 
 body{
@@ -23,7 +27,7 @@ body{
 
 .heading{
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 8rem;
 }
 
 .search-bar {
@@ -32,7 +36,7 @@ body{
   background-color: #f0f0f0; /* Adjust background color as needed */
   border-radius: 5px;
   padding: 5px 10px;
-  margin-right: 2rem;
+  margin: 4rem;
 }
 
 #search-input {
@@ -42,14 +46,50 @@ body{
   flex: 1; /* Allow input to grow and fill remaining space */
 }
 
+#search-input::placeholder {
+  color: rgb(251, 186, 0);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+#location-display {
+  /* font-weight: bold; */
+  color: rgb(251, 186, 0);
+  font-size: 8px;
+  font-style: italic;
+  margin-top: 5px;  /* Add some margin between search bar and location display */
+}
+
 .bx { /* Style the BoxIcons icon */
   font-size: 20px;
   color: #333; /* Adjust icon color as needed */
   cursor: pointer; /* Optional: Add a pointer cursor for potential search button functionality */
 }
 
-.weather-info{
+.bottom-div{
+  margin-top: rem;
+  padding:  0 4rem 0 4rem;
+}
+
+.bottom-div > h2{
+  margin-bottom: 2rem;
+}
+
+.bottom-div > p > span{
+  margin-left: 2rem;
+}
+
+#date-container {
+  font-weight: bold;
+}
+#date {
+  font-family: sans-serif;
+  color: rgb(251, 186, 0);
+}
+
+
+/* .weather-info{
   position: relative;
   margin-top: 2rem;
   margin-left: 2rem;
-}
+} */
